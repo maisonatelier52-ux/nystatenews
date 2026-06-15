@@ -1,0 +1,41 @@
+{
+  "name": "newyork",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "optimize-images": "node",
+    "build": "next build && node w3infoclear.js",
+    "start": "next start",
+    "lint": "next lint",
+
+    "build:analyze": "ANALYZE=true next build",
+    "perf:bundle": "npm run build:analyze",
+    
+    "perf:lighthouse": "npm run start & lighthouse https://nystatenews.org --output=json --output=html --output-path=./lighthouse-report",
+    
+    "perf:unused-css": "purgecss --css build/static/css/*.css --content build/**/*.js --info",
+    
+    "compress": "gzip -k build/static/js/*.js && gzip -k build/static/css/*.css"
+
+  },
+  "dependencies": {
+    "@next/bundle-analyzer": "^15.4.3",
+    "bootstrap": "^5.3.7",
+    "next": "15.4.1",
+    "react": "19.1.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "19.1.0",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/webpack": "^5.28.5",
+    "critters": "^0.0.25",
+    "sharp": "^0.34.3",
+    "typescript": "^5",
+    "webpack": "^5.101.0"
+  }
+}

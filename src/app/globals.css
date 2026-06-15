@@ -1,0 +1,535 @@
+
+/* 
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+} */
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  /* color: var(--foreground);
+  background: var(--background); */
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  .custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f7f7f7; /* thumb color, track color */
+}
+
+/* Chrome, Edge, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px; /* horizontal scroll */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f7f7f7; /* light whitish gray */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;       /* medium gray */
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;       /* darker on hover */
+}
+
+
+
+/* RigtImageContent */
+#right-image-content .title {
+  font-size: 36px;
+}
+#right-image-content .shortdesc {
+  font-size: 17px;
+}
+#right-image-content .content-column {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+#right-image-content .content-image-column {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Media Queries */
+@media (min-width: 992px) {
+  #right-image-content .title {
+    font-size: 36px;
+  }
+
+  #right-image-content .shortdesc {
+    font-size: 17px;
+  }
+
+  
+  #right-image-content .content-image-column {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  #right-image-content .title {
+    font-size: 22px !important;
+  }
+
+  #right-image-content .shortdesc {
+    font-size: 15px !important;
+  }
+
+  #right-image-content .content-column {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+}
+
+
+
+
+
+/* allminicards */
+#all-mini-cards .mini-card-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 576px) {
+  #all-mini-cards .mini-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  #all-mini-cards .mini-card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* Base styles */
+#detail-first {
+  border-bottom: 1px solid #ccc;
+  margin-top: 80px;
+  padding: 60px;
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .text-side {
+    width: 50%;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .category {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgb(219, 51, 52);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-family: 'Georgia', serif;
+      margin-bottom: 16px;
+      margin-top: 20px;
+    }
+
+    .title {
+      font-family: 'Georgia', serif;
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .shortdesc {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #111;
+      margin-bottom: 2px;
+    }
+
+    .date {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .published-label {
+        color: #000;
+        opacity: 0.6;
+        font-size: 8px;
+        margin-left: 4px;
+      }
+
+      .published-date {
+        color: #555;
+        margin-left: 4px;
+        font-size: 8px;
+      }
+    }
+  }
+
+  .image-side {
+    width: 50%;
+    position: relative;
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+
+      .detail-image {
+        object-fit: cover;
+        object-position: right bottom;
+      }
+    }
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  #detail-first {
+    padding: 16px;
+    margin-top: 20px;
+
+    .content-wrapper {
+      flex-direction: column;
+    }
+
+    .text-side {
+      width: 100%;
+      padding: 16px 12px;
+
+      .title {
+        font-size: 20px; 
+      }
+    }
+
+    .image-side {
+      width: 100%;
+
+      .image-container {
+        min-height: 300px;
+      }
+    }
+  }
+}
+
+
+
+
+/* leftImageContent */
+
+#left-image-content .responsive-title {
+  font-size: 17px !important;
+}
+
+#left-image-content .responsive-description {
+  font-size: 14px !important;
+}
+
+#left-image-content .text-col {
+  margin-bottom: 5px !important;
+}
+
+#left-image-content .image-col {
+  margin-bottom: 0px !important;
+}
+
+@media (min-width: 993px) {
+  #left-image-content .responsive-title {
+    font-size: 28px !important;
+  }
+
+  #left-image-content .responsive-description {
+    font-size: 22px !important;
+  }
+
+  #left-image-content .text-col {
+    margin-bottom: 0px !important;
+  }
+
+  #left-image-content .image-col {
+    margin-bottom: 0px !important;
+  }
+
+  
+}
+
+
+
+/* sectionwrapper */
+
+.section-wrapper .section-title {
+  font-size: 28px;
+}
+
+@media (max-width: 576px) {
+  .section-wrapper .section-title {
+    font-size: 20px !important;
+  }
+
+  .section-wrapper .section-children {
+    margin-top: 0.75rem !important;
+  }
+}
+
+
+
+/* TrumpCardComponent */
+.trump-card.trump-card {
+  font-family: Georgia, serif;
+  width: 100%;
+  max-width: 220px;
+}
+
+@media (max-width: 767px) {
+  .trump-card.trump-card {
+    max-width: 290px;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* FirstIndexSection */
+ .responsive-title {
+    font-family: 'Georgia', serif;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 576px) {
+    .responsive-title {
+      font-size: 20px;
+    }
+  }
+
+/* Image wrapper for responsive layout */
+.first-image-wrapper {
+  width: 100%;
+  height: auto;
+  max-width: 480px;
+  position: relative;
+  margin: 0;
+}
+
+/* Larger image on desktop */
+@media (min-width: 992px) {
+  .first-image-wrapper {
+    width: 70%;
+    height: 500px;
+    max-width: none;
+  }
+}
+ .first-text-wrapper {
+    padding: 60px;
+  }
+
+  @media (max-width: 576px) {
+    .first-text-wrapper {
+      padding: 10px 10px 10px 10px;
+      padding-top: 10px;
+    }
+  }
+
+/* article paragraph */
+
+.article-paragraph-container {
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.article-paragraph {
+  font-family: TNYAdobeCaslonPro, "Times New Roman", Times, serif;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #111;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.article-dropcap {
+  float: left;
+  font-size: 58px;
+  line-height: 1;
+  font-weight: bold;
+  padding-right: 8px;
+}
+
+.article-paragraph {
+  font-family: TNYAdobeCaslonPro, "Times New Roman", Times, serif;
+  font-size: 21px;
+  line-height: 1.4;
+  color: #000;
+  text-align: justify;
+}
+
+.article-dropcap {
+  float: left;
+  font-size: 56px;
+  padding-right: 6px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Mobile-specific override */
+@media (max-width: 767px) {
+  .article-paragraph {
+    font-size: 17px;
+  }
+
+  .article-dropcap {
+    font-size: 40px;
+  }
+}
+
+
+/* You must include this */
+.sticky-navbar {
+  position: fixed;
+  top: 90px; /* Adjust based on your Header height */
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+
+
+/* header */
+
+/* Global height adjustment for header on large screens */
+.header-height {
+  height: 70px;
+}
+
+@media (min-width: 992px) {
+  .header-height {
+    height: 90px; /* increased height for large screens */
+  }
+}
+
+
+
+/* hover underline for headings */
+
+.hover-underline {
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.hover-underline:hover {
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+
+
+
+}
+
+
+
+/* Custom light scrollbar */
+.table-responsive::-webkit-scrollbar {
+  height: 6px; /* horizontal scrollbar height */
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: #f1f1f1; /* light gray background */
+  border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #d6d6d6; /* lighter thumb */
+  border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf; /* slightly darker on hover */
+}
+
+/* For Firefox */
+.table-responsive {
+  scrollbar-width: thin;
+  scrollbar-color: #d6d6d6 #f1f1f1;
+}
+
+ .text-block {
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .text-block {
+    text-align: start;
+  }
+}
